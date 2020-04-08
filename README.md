@@ -20,6 +20,8 @@ Or install it yourself as:
 
 In order to use the googlepay gem, you will need to have a Google Service account setup. 
 
+#### Access to the REST API
+
 1. Sign up for a [Google Cloud Platform](https://cloud.google.com/) account.
 2. Create a new project. 
 3. Within the new project, set up a [Service Account](https://cloud.google.com/iam/docs/service-accounts). 
@@ -40,6 +42,14 @@ The format should look like:
     "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
     "client_x509_cert_url": ""
   }
+
+#### Tie your service account to your Google Pay API for Passes account
+
+Visit [here](https://developers.google.com/pay/passes/guides/get-started/basic-setup/get-access-to-rest-api) to learn how to work with Google on getting registered for a Google Pay API for Passes account and to access the Google Pay API for Passes Merchant Center. 
+
+#### Use OAuth 2.0 for your Server to Server application
+
+This gem takes of this for you, thanks to [googleauth](https://github.com/googleapis/google-auth-library-ruby). 
 
 ## Development
 
