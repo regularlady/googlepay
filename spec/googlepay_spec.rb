@@ -3,7 +3,9 @@ RSpec.describe Googlepay do
     expect(Googlepay::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "fetches an authentication token", vcr: {cassette_name: :fetch_token} do
+    result = Googlepay.fetch_token
+    expect(result.class).to eq(String)
+    expect(result).to include('ya29.')
   end
 end

@@ -5,10 +5,10 @@
 /doc/
 /pkg/
 /spec/reports/
+/spec/vcr_cassettes
 /tmp/
 
 # rspec failure tracking
 .rspec_status
 
 gpay.json
-gpay-x.json
