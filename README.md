@@ -47,9 +47,15 @@ The format should look like:
 
 Visit [here](https://developers.google.com/pay/passes/guides/get-started/basic-setup/get-access-to-rest-api) to learn how to work with Google on getting registered for a Google Pay API for Passes account and to access the Google Pay API for Passes Merchant Center. 
 
+#### Enable the Google Pay API
+
+Visit https://console.developers.google.com/apis/api/walletobjects.googleapis.com/overview?project={YOUR PROJECT} to enable the API for your project. Without doing so will cause this error: 
+
+    Google Pay Passes API has not been used in project 615220349094 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/walletobjects.googleapis.com/overview?project={ID} then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+
 #### Use OAuth 2.0 for your Server to Server application
 
-This gem takes of this for you, thanks to [googleauth](https://github.com/googleapis/google-auth-library-ruby). 
+This gem takes care of this for you, thanks to [googleauth](https://github.com/googleapis/google-auth-library-ruby). 
 
 ## Development
 

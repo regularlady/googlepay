@@ -1,4 +1,10 @@
 require 'googleauth'
+require 'httparty'
+require 'pry'
+require 'zeitwerk'
+
+loader = Zeitwerk::Loader.for_gem
+loader.setup
 
 module Googlepay
 
