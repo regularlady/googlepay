@@ -4,8 +4,8 @@ source "https://rubygems.org"
 gemspec
 
 group :test do
+  gem 'dotenv'
+  gem 'simplecov'
   gem 'webmock'
   gem 'vcr'
-  gem 'simplecov'
-  gem 'dotenv'
 end
