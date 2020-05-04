@@ -16,7 +16,7 @@ Or install it yourself as:
 
     $ gem install googlepay
 
-## Usage
+## Setup
 
 In order to use the googlepay gem, you will need to have a Google Service account setup. 
 
@@ -45,7 +45,7 @@ The format should look like:
 
 #### Tie your service account to your Google Pay API for Passes account
 
-Visit [here](https://developers.google.com/pay/passes/guides/get-started/basic-setup/get-access-to-rest-api) to learn how to work with Google on getting registered for a Google Pay API for Passes account and to access the Google Pay API for Passes Merchant Center. 
+Visit [here](https://developers.google.com/pay/passes/guides/get-started/basic-setup/get-access-to-rest-api) to learn how to work with Google on getting registered for a Google Pay API for Passes account and to access the Google Pay API for Passes Merchant Center. Once registered in the Merchant Center, save your Issuer ID.
 
 #### Enable the Google Pay API
 
@@ -56,6 +56,21 @@ Visit https://console.developers.google.com/apis/api/walletobjects.googleapis.co
 #### Use OAuth 2.0 for your Server to Server application
 
 This gem takes care of this for you, thanks to [googleauth](https://github.com/googleapis/google-auth-library-ruby). 
+
+## Usage 
+
+### Event Tickets
+
+JSON EventTicketClass must be created before EventTicketObjects can be created.
+
+Refer to the [Google Pay for Passes Code Snippets](https://developers.google.com/pay/passes/guides/pass-verticals/event-tickets/code-snippets) to build a JSON Object. I have also included simplified examples in EXAMPLE.md and you can review the specs for uses. 
+
+#### Create/Update EventTicketClass
+
+    parameters = JSON Object
+    id = Googlepay::EventTicketClass.new(parameters)[:id]
+
+Use the Issuer ID and a Unique ID formatted {Issuer ID.Unique ID} for the ID of the JSON object. If the ID exists already, the gem will update the EventTicketClass automatically. 
 
 ## Development
 
