@@ -1,5 +1,3 @@
-require 'pry'
-
 RSpec.describe Googlepay::EventTicketClass do
 
   before(:each) do
