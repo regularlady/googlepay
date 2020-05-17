@@ -2,7 +2,6 @@ module Googlepay
   class EventTicketObject
 
     EVENT_URL = 'https://www.googleapis.com/walletobjects/v1/eventTicketObject?'
-    RETRY = 3
 
     def initialize(parameters)
       @parameters = parameters
@@ -18,12 +17,14 @@ module Googlepay
           "typ": 'savetoandroidpay',
           "iat":  Time.now.utc.to_i,
           "payload": {
-              'eventTicketObjects': [@parameters]
+              'eventTicketObjects': [@parameters.dup.tap { |h| h.delete(:origin) }]
           },
-          'origins': @parameters['origin']
+          'origins': @parameters.fetch(:origin)
       }
       JWT.encode payload, rsa_private, 'RS256'
     end
+
+  private
 
     def create_event_object(event_ticket)
       result = HTTParty.post("#{EVENT_URL}access_token=#{Googlepay.token}",
