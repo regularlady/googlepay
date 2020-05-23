@@ -72,6 +72,16 @@ Refer to the [Google Pay for Passes Code Snippets](https://developers.google.com
 
 Use the Issuer ID and a Unique ID formatted {Issuer ID.Unique ID} for the ID of the JSON object. If the ID exists already, the gem will update the EventTicketClass automatically. 
 
+More documentation [here](https://developers.google.com/pay/passes/rest/v1/eventticketclass).
+
+#### Create EventTicketObject
+
+     Googlepay::EventTicketObject.new(parameters)
+
+Use the Class ID and a Unique ID formatted {Issuer ID.Unique ID} for the ID of the JSON object. Include the array of domains to whitelist JWT saving functionality in the origin parameter. The Google Pay API for Passes button will not render when the origins field is not defined. You could potentially get an "Load denied by X-Frame-Options" or "Refused to display" messages in the browser console when the origins field is not defined.
+
+More documentation [here](https://developers.google.com/pay/passes/rest/v1/eventticketobject).
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
