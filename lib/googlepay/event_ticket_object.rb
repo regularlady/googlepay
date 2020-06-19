@@ -8,11 +8,10 @@ module Googlepay
     end
 
     def create
-      json = JSON.parse(File.read(File.open("#{Googlepay.root}/gpay.json")))
-      rsa_private = OpenSSL::PKey::RSA.new json['private_key']
+      rsa_private = OpenSSL::PKey::RSA.new Googlepay.configuration.service_account[:private_key]
       create_event_object(@parameters)
       payload = {
-          "iss": json["client_email"],
+          "iss": Googlepay.configuration.service_account[:client_email],
           "aud": 'google',
           "typ": 'savetoandroidpay',
           "iat":  Time.now.utc.to_i,

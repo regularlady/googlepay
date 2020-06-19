@@ -26,22 +26,26 @@ In order to use the googlepay gem, you will need to have a Google Service accoun
 2. Create a new project. 
 3. Within the new project, set up a [Service Account](https://cloud.google.com/iam/docs/service-accounts). 
 4. Click on Actions on your new Service Account, Create Key, generate a JSON key and download. 
-5. Add the file into the root of your project, renaming it to gpay.json. 
+5. Add the file into an initializer in your project.  
 
-The format should look like: 
+Example: initializers/googlepay.rb
 
-    {
-      "type": "service_account",
-      "project_id": "",
-      "private_key_id": "",
-      "private_key": "",
-      "client_email": "",
-      "client_id": "",
-      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-      "token_uri": "https://oauth2.googleapis.com/token",
-      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-      "client_x509_cert_url": ""
-    }
+    require 'googlepay'
+
+    Googlepay.configure do |config|
+      config.service_account = {
+        "type": "service_account",
+        "project_id": "",
+        "private_key_id": "",
+        "private_key": "",
+        "client_email": "",
+        "client_id": "",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_x509_cert_url": ""
+      }
+    end  
 
 #### Tie your service account to your Google Pay API for Passes account
 
@@ -90,7 +94,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/googlepay. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/regularlady/googlepay. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

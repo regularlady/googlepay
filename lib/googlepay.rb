@@ -1,6 +1,5 @@
 require 'googleauth'
 require 'httparty'
-require 'pry'
 require 'zeitwerk'
 
 loader = Zeitwerk::Loader.for_gem
@@ -14,14 +13,33 @@ module Googlepay
     fetch_token
   end
 
+  class << self
+    attr_accessor :configuration
+  end
+
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.reset
+    @configuration = Configuration.new
+  end
+
+  def self.configure
+    yield(configuration)
+  end
+
   private
  
   def self.fetch_token
+    json_key = Tempfile.new
+    json_key.write(Googlepay.configuration.service_account.to_json)
+    json_key.rewind
     authorizer = Google::Auth::ServiceAccountCredentials.make_creds(
-      json_key_io: File.open("#{root}/gpay.json"),
+      json_key_io: json_key,
       scope: SCOPE
     )
-  
+    json_key.close
     authorizer.fetch_access_token!['access_token']
   end
 

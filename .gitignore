@@ -11,4 +11,4 @@
 # rspec failure tracking
 .rspec_status
 
-gpay.json
+.env
