@@ -1,5 +1,6 @@
 require 'googleauth'
 require 'httparty'
+require 'tempfile'
 require 'zeitwerk'
 
 loader = Zeitwerk::Loader.for_gem
