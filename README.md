@@ -26,7 +26,7 @@ In order to use the googlepay gem, you will need to have a Google Service accoun
 2. Create a new project. 
 3. Within the new project, set up a [Service Account](https://cloud.google.com/iam/docs/service-accounts). 
 4. Click on Actions on your new Service Account, Create Key, generate a JSON key and download. 
-5. Add the file into an initializer in your project.  
+5. Add the file into an initializer in your project. 
 
 Example: initializers/googlepay.rb
 
@@ -46,6 +46,15 @@ Example: initializers/googlepay.rb
         "client_x509_cert_url": ""
       }
     end  
+
+preferably by storing them as an ENV VAR in YAML format. 
+
+    require 'googlepay'
+
+    Googlepay.configure do |config|
+      config.service_account = Rails.application.credentials.service_account
+      #config.service_account = ENV['SERVICE_ACCOUNT']
+    end
 
 #### Tie your service account to your Google Pay API for Passes account
 
