@@ -16,6 +16,10 @@ Or install it yourself as:
 
     $ gem install googlepay
 
+## Try It
+
+To try an implementation of the gem, try it [here](https://google-pay-demo.herokuapp.com/) or view the demo code [here](https://github.com/regularlady/googlepay-demo). 
+
 ## Setup
 
 In order to use the googlepay gem, you will need to have a Google Service account setup. 
